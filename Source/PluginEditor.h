@@ -17,4 +17,6 @@ public:
     AudioPluginAudioProcessor& processorRef;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioPluginAudioProcessorEditor)
+private:
+    juce::TextButton start_button;
 };
