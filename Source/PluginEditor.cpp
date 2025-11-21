@@ -20,7 +20,7 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
 
 void AudioPluginAudioProcessorEditor::initialiseGUI() {
     start_button.setButtonText("Analyse");
-    start_button.onClick = [this] { analyse(start_button); };
+    start_button.onClick = [this] { analyze(start_button); };
     addAndMakeVisible(start_button);
 
     // Must be set before constructor is finished.
