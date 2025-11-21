@@ -1,5 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "Interface/Button.h"
 #include <chrono>
 #include <thread>
 
@@ -12,24 +13,18 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
 {
     juce::ignoreUnused (processorRef);
 
-    start_button.setButtonText("Analyse");
-    start_button.onClick = [this]()
-        {
-            // Change the state of the button when it's clicked.
-            start_button.setButtonText("Analysing...");
-            start_button.repaint();
-            bool analysing = true;
-            while (analysing) {
-                std::this_thread::sleep_for(std::chrono::seconds(3));
-                analysing = false;
-            }
-            start_button.setButtonText("Analyse");
-            start_button.repaint();
-        };
-    addAndMakeVisible(start_button);
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (WIDTH, HEIGHT);
+    initialiseGUI();
+}
+
+void AudioPluginAudioProcessorEditor::initialiseGUI() {
+    start_button.setButtonText("Analyse");
+    start_button.onClick = [this] { analyse(start_button); };
+    addAndMakeVisible(start_button);
+
+    // Must be set before constructor is finished.
+    setSize(WIDTH, HEIGHT);
 }
 
 AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()

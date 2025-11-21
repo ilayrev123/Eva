@@ -33,7 +33,8 @@ set(SourceFiles
         Source/PluginEditor.h
         Source/PluginProcessor.cpp
         Source/PluginProcessor.h
-        Objects/Button.h
+        Source/Interface/Button.cpp
+        Source/Interface/Button.h
 )
 
 # Change these to your own preferences
@@ -56,7 +57,7 @@ juce_add_plugin(${PROJECT_NAME}
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SourceFiles})
 
 # Make the SourceFiles buildable
-target_sources(${PROJECT_NAME} PRIVATE ${SourceFiles} "Objects/Button.h")
+target_sources(${PROJECT_NAME} PRIVATE ${SourceFiles})
 
 # These are some toggleable options from the JUCE CMake API
 target_compile_definitions(${PROJECT_NAME}
