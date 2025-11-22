@@ -35,6 +35,8 @@ set(SourceFiles
         Source/PluginProcessor.h
         Source/Interface/Button.cpp
         Source/Interface/Button.h
+        Source/Processing/MFCC.cpp
+        Source/Processing/MFCC.h
 )
 
 # Change these to your own preferences
